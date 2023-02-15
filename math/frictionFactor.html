@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Setting up tests &#8212; calcCoag</title>
+    <title>Friction factor &#8212; calcCoag</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,9 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Notes" href="notes.html" />
+    <link rel="next" title="Hard-sphere approximation" href="hardsphereApprox.html" />
+    <link rel="prev" title="Diffusive Knudsen number" href="diffusiveKnudsen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -114,13 +117,13 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  note
+  math
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="notes.html">
-   Notes
+  <a class="reference internal" href="maths.html">
+   Equations
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -128,8 +131,67 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="cunninghamCorrection.html">
+     Cunningham correction factor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="diffusionCoefficient.html">
+     Diffusion coefficient
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="diffusiveKnudsen.html">
+     Diffusive Knudsen number
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
+     Friction factor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hardsphereApprox.html">
+     Hard-sphere approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="meanFreePath.html">
+     Mean free path
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mediumViscosity.html">
+     Medium viscosity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="reducedQuantity.html">
+     Reduced quantity
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  misc
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../misc/miscs.html">
+   Notes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../misc/test.html">
      Setting up tests
     </a>
    </li>
@@ -225,7 +287,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/uncscode/calcCoag/issues/new?title=Issue%20on%20page%20%2Fnote/test.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/uncscode/calcCoag/issues/new?title=Issue%20on%20page%20%2Fmath/frictionFactor.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -242,7 +304,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/uncscode/calcCoag/edit/main/docs/note/test.md"
+        <a href="https://github.com/uncscode/calcCoag/edit/main/docs/math/frictionFactor.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -270,7 +332,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/note/test.md"
+        <a href="../_sources/math/frictionFactor.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -319,7 +381,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Setting up tests</h1>
+                <h1>Friction factor</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -331,8 +393,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="setting-up-tests">
-<h1>Setting up tests<a class="headerlink" href="#setting-up-tests" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="friction-factor">
+<h1>Friction factor<a class="headerlink" href="#friction-factor" title="Permalink to this headline">#</a></h1>
+<p>Property of the particle’s size and surrounding medium. Multiplying the friction factor by the fluid velocity yields the drag force on the particle. It is best thought of as an inverse of mobility or the ratio between thermal energy, <span class="math notranslate nohighlight">\(kT\)</span>, and the <a class="reference internal" href="diffusionCoefficient.html"><span class="doc std std-doc">particle diffusion coefficient, <span class="math notranslate nohighlight">\(D_{i}\)</span></span></a>, yielding a dependency on the radius, <span class="math notranslate nohighlight">\(a_{i}\)</span>, of the particle and the <a class="reference internal" href="mediumViscosity.html"><span class="doc std std-doc">viscosity, <span class="math notranslate nohighlight">\(\mu\)</span>, of the fluid</span></a>, as well as the <a class="reference internal" href="cunninghamCorrection.html"><span class="doc std std-doc">Cunningham slip correction factor, <span class="math notranslate nohighlight">\(C_{\mathrm{c}}\)</span></span></a>.</p>
+<div class="math notranslate nohighlight">
+\[
+f_{i} = \frac{kT}{D_{i}} = \frac{6 \pi  \mu a_{i}}{C_{\mathrm{c}}}
+\]</div>
+<ul class="simple">
+<li><p>In the continuum limit, <span class="math notranslate nohighlight">\(\mathrm{Kn} \to 0\)</span> and <span class="math notranslate nohighlight">\(C_{\mathrm{c}} \to 1\)</span> and so <span class="math notranslate nohighlight">\(f_{i} \to 6 \pi  \mu a_{i}\)</span>.</p></li>
+<li><p>In the kinetic limit, <span class="math notranslate nohighlight">\(\mathrm{Kn} \to \infty\)</span> and so <span class="math notranslate nohighlight">\(f_{i} = 8.39 \left(\mu/\lambda\right) a_{i}^{2} \times 1.36\)</span> following <a class="reference external" href="https://doi.org/10.1080/02786826.2012.690543">https://doi.org/10.1080/02786826.2012.690543</a>, where <a class="reference internal" href="meanFreePath.html"><span class="doc std std-doc"><span class="math notranslate nohighlight">\(\lambda\)</span> is the mean free path of the medium</span></a> (e.g., air molecules).</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -348,7 +419,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             name: "python3",
-            path: "./note"
+            path: "./math"
         },
         predefinedOutput: true
     }
@@ -362,12 +433,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="notes.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="diffusiveKnudsen.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Notes</p>
+            <p class="prev-next-title">Diffusive Knudsen number</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="hardsphereApprox.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hard-sphere approximation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
