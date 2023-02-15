@@ -1,4 +1,4 @@
-classdef TestCoag < matlab.unittest.TestCase
+classdef TestDimLessCoag < matlab.unittest.TestCase
     methods (Test)
         function testCoag(testCase)
             addpath('../code')

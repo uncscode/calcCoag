@@ -1,4 +1,4 @@
-function kernel = calc_coag(diffusive_knudsen, columbic_potential_ratio, approx)
+function kernel = dimLessCoag(diffusive_knudsen, columbic_potential_ratio, approx)
     % Purpose: calculate the coagulation kernel
     % Inputs:
     %   diffusive_knudsen: diffusive knudsen number
@@ -14,7 +14,7 @@ function kernel = calc_coag(diffusive_knudsen, columbic_potential_ratio, approx)
     cecl = 1 .* (cpr == 0) + (cpr ./ (1 - exp(-cpr))) .* (cpr ~= 0);
 
     coag_cont_lim = 4 .* pi() .* diffusive_knudsen.^2;
-    coag_hs = hardsphere_approx(coag_cont_lim, diffusive_knudsen);
+    coag_hs = hardsphereApprox(coag_cont_lim, diffusive_knudsen);
 
 
     kernel = coag_hs;
