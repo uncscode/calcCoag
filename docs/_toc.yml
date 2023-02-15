@@ -1,9 +1,16 @@
 format: jb-book
 root: home
 parts:
-- caption: note
+- caption: math
   numbered: false
   chapters:
-  - file: note/notes
+  - file: math/maths
     sections:
-    - file: note/test
+    - file: math/hardsphereApprox
+
+- caption: misc
+  numbered: false
+  chapters:
+  - file: misc/miscs
+    sections:
+    - file: misc/test
