@@ -9,7 +9,7 @@ $$
 - $k$ is Boltzmann's constant
 - $T$ is the temperature
 - $m_{ij}$ is the [reduced](reducedQuantity) mass
-- $f_{ij}$ is the [reduced](reducedQuantity) friction factor
+- $f_{ij}$ is the [reduced](reducedQuantity) [friction factor](frictionFactor)
 - $a_{i}$ is the radius of particle $i$
 
 Reference: Equation 3b in https://doi.org/10.1103/PhysRevE.85.026410
