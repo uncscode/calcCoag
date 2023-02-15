@@ -6,7 +6,14 @@ parts:
   chapters:
   - file: math/maths
     sections:
+    - file: math/cunninghamCorrection
+    - file: math/diffusionCoefficient
+    - file: math/diffusiveKnudsen
+    - file: math/frictionFactor
     - file: math/hardsphereApprox
+    - file: math/meanFreePath
+    - file: math/mediumViscosity
+    - file: math/reducedQuantity
 
 - caption: misc
   numbered: false
