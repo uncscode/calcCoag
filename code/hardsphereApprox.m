@@ -1,4 +1,4 @@
-function hs = hardsphere_approx(coag_cont_lim, diffusive_knudsen)
+function hs = hardsphereApprox(coag_cont_lim, diffusive_knudsen)
     % Purpose: calculates the hard sphere coag approximation
     % Inputs:
     %   coag_cont_lim: the coagulation continuum limit
