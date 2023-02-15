@@ -1,0 +1,32 @@
+name: test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  testing:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+         mr: ["R2022b"]
+         os: ["ubuntu-latest"]
+  
+    steps:
+      - 
+        uses: actions/checkout@v3
+      - 
+        name: MATLAB ${{ matrix.mr }}
+        uses: matlab-actions/setup-matlab@v1
+        with:
+          release: ${{ matrix.mr }}
+      - 
+        name: Run tests
+        uses: matlab-actions/run-tests@v1
+        with:
+          test-results-junit: test-results/results.xml
+          code-coverage-cobertura: code-coverage/coverage.xml
