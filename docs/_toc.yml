@@ -1,0 +1,9 @@
+format: jb-book
+root: home
+parts:
+- caption: note
+  numbered: false
+  chapters:
+  - file: note/notes
+    sections:
+    - file: note/test

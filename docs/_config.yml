@@ -1,0 +1,13 @@
+title: "calcCoag"
+author: "uncscode"
+logo: placeholder.png
+
+repository:
+  url: https://github.com/uncscode/calcCoag
+  path_to_book: docs
+  branch: main
+
+html:
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
